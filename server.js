@@ -8,10 +8,12 @@ dotenv.config({ path: "./config/config.env" });
 
 connectDB();
 
-const app = express();
-
 // Import Routes
 const transactions = require("./routes/transactions");
+
+const app = express();
+
+app.use(express.json());
 
 app.use("/api/v1/transactions", transactions);
 
